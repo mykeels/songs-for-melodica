@@ -39,8 +39,29 @@ const songsDir = path.join(__dirname, "../songs");
 const outputDir = path.join(__dirname, "../html");
 
 const songFilePaths = fs.readdirSync(songsDir);
+const indexHtml = [
+  `
+  <style>
+    h1 {
+      text-align: center;
+    }
+    div {
+      text-align: center;
+      padding: 1em;
+      font-size: 1.5em;
+    }
+  </style>
+  <h1>Songs for Melodica</h1>
+  `
+];
 
 for (const songFilePath of songFilePaths) {
+  const songFileName = songFilePath.replace(".solfa", ".html").replace(".tonicsolfa", ".html");
+  const songName = songFileName.replace(/-/g, " ").replace(".html", "");
+  indexHtml.push(`
+    <div>
+    <a href="${songFileName}">${songName}</a>
+    </div>`);
   const songLines = fs.readFileSync(path.join(songsDir, songFilePath), "utf8").split("\n");
   const html: string[] = [styleHtml];
   let songLine = '';
@@ -56,10 +77,14 @@ for (const songFilePath of songFilePaths) {
     }
   }
   html.push("</div>");
-  const outputFilePath = path.join(outputDir, songFilePath.replace(".solfa", ".html").replace(".tonicsolfa", ".html"));
+  const outputFilePath = path.join(outputDir, songFileName);
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(outputFilePath, html.join("\n"));
+
 }
+
+
+fs.writeFileSync(path.join(outputDir, "index.html"), indexHtml.join("\n"));
 
 console.log("Done!");
 
