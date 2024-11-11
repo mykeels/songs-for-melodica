@@ -56,7 +56,7 @@ for (const songFilePath of songFilePaths) {
     }
   }
   html.push("</div>");
-  const outputFilePath = path.join(outputDir, songFilePath.replace(".tonicsolfa", ".html"));
+  const outputFilePath = path.join(outputDir, songFilePath.replace(".solfa", ".html").replace(".tonicsolfa", ".html"));
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(outputFilePath, html.join("\n"));
 }
