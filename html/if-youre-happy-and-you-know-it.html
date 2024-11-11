@@ -1,30 +1,41 @@
 
 <style>
+    html {
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 12px;
+      }
+    }
+
     .tonic-solfa {
         font-weight: bold;
         position: relative;
-        padding-bottom: 1em;
-        margin-top: 0.5em;
+        padding-bottom: 1rem;
+        margin-top: 0.5rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 2em;
-        letter-spacing: 0.2em;
+        font-size: 1.5rem;
+        letter-spacing: 0.2rem;
+        text-wrap: nowrap;
     }
     .solfa {
       color: #FA0;
-      font-size: 0.8em;
+      font-size: 1.2rem;
       vertical-align: bottom;
-      margin-bottom: 1.2em;
+      margin-bottom: 1.2rem;
       display: inline-block;
-      margin-left: -0.6em;
+      margin-left: -0.6rem;
       position: absolute;
       top: -0.9em;
     }
     .song {
-      padding-top: 1em;
-      padding-bottom: 1em;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
     .break {
-      height: 2em;
+      height: 2rem;
       display: block;
     }
 </style>
