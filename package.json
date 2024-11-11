@@ -1,0 +1,17 @@
+{
+  "name": "songs-for-melodica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "process": "bun scripts/process-songs.script.ts",
+    "process:watch": "bun --watch scripts/process-songs.script.ts"
+  },
+  "keywords": [],
+  "author": "mykeels",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^22.9.0",
+    "bun": "^1.1.34"
+  }
+}
