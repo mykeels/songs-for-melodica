@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "bun scripts/process-songs.script.ts",
-    "deploy": "gh-pages -d html"
+    "deploy": "npm run start && gh-pages -d html"
   },
   "keywords": [],
   "author": "mykeels",
