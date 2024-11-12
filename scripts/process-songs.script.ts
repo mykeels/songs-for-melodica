@@ -66,7 +66,7 @@ const indexHtml = [
   `
 ];
 
-for (const songFilePath of songFilePaths) {
+for (const songFilePath of songFilePaths.sort()) {
   const songFileName = songFilePath.replace(".solfa", ".html").replace(".tonicsolfa", ".html");
   const songName = songFileName.replace(/-/g, " ").replace(".html", "");
   indexHtml.push(`
