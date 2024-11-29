@@ -103,14 +103,17 @@ function superimpose(line: string, tonicSolfa: string) {
   const result = [];
   line = line.trim();
   tonicSolfa = tonicSolfa.trim();
+  let skipSolfaTimes = 0;
   for (let i = 0; i < line.length; i++) {
     const char = line[i];
-    let solfa = getSolfa(i);
+    let solfa = skipSolfaTimes > 0 ? ' ' : getSolfa(i);
+    skipSolfaTimes = solfa.length;
     
     result.push(char);
     if (solfa !== ' ') {
       result.push(`<sup class="solfa">${solfa}</sup>`);
     }
+    skipSolfaTimes = Math.max(skipSolfaTimes - 1, 0);
   }
 
   return `<div class="tonic-solfa">${result.join("")}</div>`;
@@ -125,6 +128,9 @@ function superimpose(line: string, tonicSolfa: string) {
     while (tonicSolfa[i + 1] && tonicSolfa[i + 1] !== ' ') {
       solfa += tonicSolfa[i + 1];
       i++;
+    }
+    if (solfa?.length > 1) {
+      console.log(solfa);
     }
     return solfa || ' ';
   }
