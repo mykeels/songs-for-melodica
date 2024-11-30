@@ -38,7 +38,6 @@ const styleHtml = `
     .song {
       padding-top: 1rem;
       padding-bottom: 1rem;
-      width: 70dvh;
     }
     .break {
       height: 2rem;
