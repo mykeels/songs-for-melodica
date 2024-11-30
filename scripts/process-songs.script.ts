@@ -129,12 +129,6 @@ function superimpose(line: string, tonicSolfa: string) {
       solfa += tonicSolfa[i + 1];
       i++;
     }
-    if (solfa?.length > 1) {
-      console.log(solfa);
-    }
     return solfa || ' ';
   }
 }
-console.log(
-  superimpose('Feliz Navidad', "s d'  t d' l")
-);
