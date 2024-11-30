@@ -5,6 +5,8 @@ const styleHtml = `
 <style>
     html {
       font-size: 18px;
+      display: flex;
+      justify-content: center;
     }
 
     @media (max-width: 768px) {
@@ -36,6 +38,7 @@ const styleHtml = `
     .song {
       padding-top: 1rem;
       padding-bottom: 1rem;
+      width: 70dvh;
     }
     .break {
       height: 2rem;
